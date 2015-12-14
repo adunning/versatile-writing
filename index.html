@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Versatile academic writing with Pandoc by adunning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Versatile academic writing with Pandoc</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/adunning/versatile-writing" class="btn">View on GitHub</a>
+      <a href="https://github.com/adunning/versatile-writing/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/adunning/versatile-writing/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1 id="technology-independent-writing">
+<a id="technology-independent-writing" class="anchor" href="#technology-independent-writing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Technology-independent writing</h1>
+
+<h2 id="why-not-word">
+<a id="why-not-word" class="anchor" href="#why-not-word" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why not Word?</h2>
+
+<ul>
+<li>Always focus on what will inspire you to write.</li>
+<li>There are many situations in which one needs to provide a document in multiple formats.</li>
+<li>From a technical point of view, there are several advantages to working with plain-text files:
+<ul>
+<li>You can see precisely what is in your files, and have complete control.</li>
+<li>Easier to achieve accessibility.</li>
+<li>Plain text has existed for decades.</li>
+<li>Facilitates separation of content and presentation, and focus on structure.</li>
+</ul>
+</li>
+</ul>
+
+<h2 id="latex">
+<a id="latex" class="anchor" href="#latex" aria-hidden="true"><span class="octicon octicon-link"></span></a>LaTeX</h2>
+
+<ul>
+<li>A professional typesetting system, widely used for scientific writing.</li>
+<li>TeX begun in 1978; LaTeX is a macro language for TeX, begun in 1985.</li>
+<li>Drawback: can only produce PDFs.</li>
+</ul>
+
+<h2 id="markdown">
+<a id="markdown" class="anchor" href="#markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Markdown</h2>
+
+<ul>
+<li>Lightweight markup language developed in 2004, designed to correspond to HTML.</li>
+<li>Introduction to basic markup: <a href="http://markdowntutorial.com">http://markdowntutorial.com</a>
+</li>
+<li>Subsequently extended through many ‘flavours’, not entirely compatible with one another.</li>
+</ul>
+
+<h2 id="pandoc">
+<a id="pandoc" class="anchor" href="#pandoc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pandoc</h2>
+
+<ul>
+<li>Document converter, begun in 2006 by John MacFarlane (now chair of philosophy at University of California Berkeley).</li>
+<li>Introduction: <a href="http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown">Sustainable Authorship in Plain Text using Pandoc and Markdown</a>
+</li>
+</ul>
+
+<h2 id="example-document">
+<a id="example-document" class="anchor" href="#example-document" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example document</h2>
+
+<blockquote>
+<p><strong>Test Document</strong></p>
+<p>This is a <em>test</em> sentence.</p>
+</blockquote>
+
+<h2 id="word-html-output">
+<a id="word-html-output" class="anchor" href="#word-html-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Word HTML output</h2>
+
+<div><pre><code>&lt;body bgcolor=white lang=EN-US style='tab-interval:36.0pt'&gt;
+
+&lt;div class=WordSection1&gt;
+
+&lt;p class=MsoNormal&gt;&lt;b style='mso-bidi-font-weight:normal'&gt;&lt;span
+style='mso-ansi-language:EN-US'&gt;Test Document&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
+
+&lt;p class=MsoNormal&gt;&lt;span style='mso-ansi-language:EN-US'&gt;&lt;o:p&gt;&amp;nbsp;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p class=MsoNormal&gt;&lt;span style='mso-ansi-language:EN-US'&gt;This is a &lt;i
+style='mso-bidi-font-style:normal'&gt;test&lt;/i&gt; sentence.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/body&gt;</code></pre></div>
+<h2 id="semantic-html-output">
+<a id="semantic-html-output" class="anchor" href="#semantic-html-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Semantic HTML output</h2>
+<div><pre><code>&lt;h1&gt;Test Document&lt;/h1&gt;
+&lt;p&gt;This is a &lt;em&gt;test&lt;/em&gt; sentence.&lt;/p&gt;</code></pre></div>
+<h2 id="markdown-input">
+<a id="markdown-input" class="anchor" href="#markdown-input" aria-hidden="true"><span class="octicon octicon-link"></span></a>Markdown input</h2>
+<div><pre><code># Test Document
+
+This is a *test* sentence.</code></pre></div>
+<h1 id="setup">
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h1>
+<h2 id="what-youll-need">
+<a id="what-youll-need" class="anchor" href="#what-youll-need" aria-hidden="true"><span class="octicon octicon-link"></span></a>What you’ll need</h2>
+<ol>
+<li>A text editor. This can be anything you like, e.g. <a href="https://atom.io">Atom.io</a>, <a href="https://macromates.com">TextMate 2</a> (Mac), or <a href="http://omz-software.com/editorial/">Editorial</a> (iOS).</li>
+<li>
+<a href="http://pandoc.org">Pandoc</a>, to convert your writing into the formats you want.</li>
+<li>If you want to use a citation manager: <a href="https://www.zotero.org">Zotero</a> provides the most flexibility.</li>
+<li>Pandoc can <a href="http://pandoc.org/installing.html">integrate with LaTeX</a> for creating well-typeset PDFs.</li>
+</ol>
+<h2 id="install-atom">
+<a id="install-atom" class="anchor" href="#install-atom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install Atom</h2>
+<div>
+<p>Since Atom provides excellent support for Markdown and is cross-platform and open-source, we’re going to focus on it in this tutorial. It is intended as a minimalist basis onto which one can add the pieces needed.</p>
+</div>
+
+<ol>
+<li>Download and install the appropriate version of <a href="https://atom.io">Atom</a> for your system.</li>
+<li>Add these packages by opening the Atom preferences, going to the Install screen, and searching for the following:
+<ul>
+<li>markdown-writer</li>
+<li>zotero-citations</li>
+</ul>
+</li>
+</ol>
+
+<hr>
+
+<ol start="3">
+<li>Other useful packages:
+<ul>
+<li>dictionary (OS X Dictionary integration)</li>
+<li>wordcount</li>
+<li>zen (full-screen writing)</li>
+<li>language-pfm (better syntax highlighting: disable language-gfm package if used)</li>
+<li>markdown-folder</li>
+<li>markdown-mindmap</li>
+<li>markdown-preview-plus (Markdown preview using Pandoc)</li>
+</ul>
+</li>
+</ol>
+
+<h2 id="configure-atom-packages">
+<a id="configure-atom-packages" class="anchor" href="#configure-atom-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configure Atom Packages</h2>
+
+<ol>
+<li>In the settings screen for Zotero Citations, change the citation style to ‘pandoc’.</li>
+<li>To set up standard keyboard shortcuts, type Cmd/Ctrl+Shift+P to open the command window, and select ‘Markdown Writer: Create Default keymaps’.</li>
+</ol>
+
+<h2 id="install-pandoc">
+<a id="install-pandoc" class="anchor" href="#install-pandoc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install Pandoc</h2>
+
+<ul>
+<li>Install using the <a href="http://pandoc.org/installing.html">Pandoc package</a>.</li>
+<li>Mac: package also available, but recommended to install using <a href="http://brew.sh">Homebrew</a>, a manager for command-line tools.</li>
+</ul>
+
+<h2 id="install-zotero">
+<a id="install-zotero" class="anchor" href="#install-zotero" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install Zotero</h2>
+
+<ul>
+<li>Download <a href="https://www.zotero.org/download/">Zotero</a>.</li>
+<li>Install the <a href="https://zotplus.github.io/better-bibtex/">Better BibTeX</a> add-on.</li>
+</ul>
+
+<h1 id="start-writing">
+<a id="start-writing" class="anchor" href="#start-writing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Start writing</h1>
+
+<h2 id="basic-syntax">
+<a id="basic-syntax" class="anchor" href="#basic-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic syntax</h2>
+
+<ol>
+<li>Create a new document in Atom and save it somewhere with a <code>.md</code> extension.</li>
+<li>Open the command window (Cmd/Ctrl+Shift+P) and choose ‘Markdown Preview’.</li>
+</ol>
+
+<div><pre><code>*italic* or _italic_
+
+**bold**
+
+New paragraphs are indicated by two line breaks.</code></pre></div>
+
+<h2 id="lists">
+<a id="lists" class="anchor" href="#lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h2>
+
+<div><pre><code>- Item 1
+- Item 2
+- Item 3</code></pre></div>
+
+<div><pre><code>1. Item 1
+2. Item 2
+3. Item 3</code></pre></div>
+
+<h2 id="headings">
+<a id="headings" class="anchor" href="#headings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Headings</h2>
+
+<div><pre><code># Heading 1
+
+Text.
+
+## Heading 2
+
+Text.
+
+### Heading 3
+
+Text.</code></pre></div>
+
+<h2 id="block-quotation">
+<a id="block-quotation" class="anchor" href="#block-quotation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Block Quotation</h2>
+
+<div><pre><code>Text.
+
+&gt; Quoted text.</code></pre></div>
+
+<h2 id="metadata">
+<a id="metadata" class="anchor" href="#metadata" aria-hidden="true"><span class="octicon octicon-link"></span></a>Metadata</h2>
+
+<div><pre><code>---
+title: My Horrible Life
+author: Peter Abelard
+date: 14 December 1115
+abstract: |
+    Explanation of the pure and unappreciated
+    genius of the author.
+---</code></pre></div>
+
+<h2 id="comments">
+<a id="comments" class="anchor" href="#comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Comments</h2>
+
+<div><pre><code>&lt;!-- This text will not be visible. --&gt;</code></pre></div>
+
+<h1 id="convert-a-document">
+<a id="convert-a-document" class="anchor" href="#convert-a-document" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convert a document</h1>
+
+<h2 id="open-the-terminal">
+<a id="open-the-terminal" class="anchor" href="#open-the-terminal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open the Terminal</h2>
+
+<ul>
+<li>Programs are executed on the command line by typing their name, followed by ‘arguments’ (i.e. the content they are to manipulate) and ‘flags’ (options to be used).
+<ul>
+<li>Mac: Terminal (in the Utilities folder)</li>
+<li>Windows: Command Prompt or PowerShell</li>
+</ul>
+</li>
+<li>Type <code>pandoc</code>: nothing will happen, since it needs text to work with.</li>
+<li>Type something into the prompt. To end the transmission, type Ctrl+D (Ctrl+Z on Windows).</li>
+<li>Pandoc will provide the HTML equivalent of what you just typed.</li>
+</ul>
+
+<h2 id="open-the-folder-in-the-terminal">
+<a id="open-the-folder-in-the-terminal" class="anchor" href="#open-the-folder-in-the-terminal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open the folder in the terminal</h2>
+
+<h3 id="mac">
+<a id="mac" class="anchor" href="#mac" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mac</h3>
+
+<ul>
+<li>Drag the icon for the folder you want to work with onto the Terminal icon in the Dock.</li>
+</ul>
+
+<h3 id="windows">
+<a id="windows" class="anchor" href="#windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Windows</h3>
+
+<ul>
+<li>Right-click in the folder with the shift key held down</li>
+<li>Choose the ‘Open in Command Prompt’ option.</li>
+</ul>
+
+<h2 id="convert-a-document-to-html">
+<a id="convert-a-document-to-html" class="anchor" href="#convert-a-document-to-html" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convert a document to HTML</h2>
+
+<ul>
+<li>To convert a file named <code>test.md</code> into HTML format:</li>
+</ul>
+
+<blockquote>
+<p>pandoc test.md -o test.html -sS</p>
+</blockquote>
+
+<ul>
+<li>The <code>-sS</code> flags are short forms for the <code>smart</code> and <code>standalone</code> options, which enable smart typography and HTML heading information (document will be a fragment otherwise).</li>
+</ul>
+
+<h2 id="convert-a-word-document-to-markdown">
+<a id="convert-a-word-document-to-markdown" class="anchor" href="#convert-a-word-document-to-markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convert a Word document to Markdown</h2>
+
+<blockquote>
+<p>pandoc word-test.docx -o word-test.md -sS –atx-headers –no-wrap</p>
+</blockquote>
+
+<ul>
+<li>There are two different methods of writing headings in Markdown; <code>--atx-headers</code> uses the hash characters.</li>
+<li>
+</ul>
+
+<h2 id="other-formats">
+<a id="other-formats" class="anchor" href="#other-formats" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other formats</h2>
+
+<h3 id="html5">
+<a id="html5" class="anchor" href="#html5" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML5</h3>
+
+<blockquote>
+<p>pandoc test.md -o test.html -sS -t html5</p>
+</blockquote>
+
+<h3 id="word">
+<a id="word" class="anchor" href="#word" aria-hidden="true"><span class="octicon octicon-link"></span></a>Word</h3>
+
+<blockquote>
+<p>pandoc test.md -o test.docx -sS</p>
+</blockquote>
+
+<h3 id="epub">
+<a id="epub" class="anchor" href="#epub" aria-hidden="true"><span class="octicon octicon-link"></span></a>EPUB</h3>
+
+<blockquote>
+<p>pandoc test.md -o test.epub -sS</p>
+</blockquote>
+
+<h1 id="citations">
+<a id="citations" class="anchor" href="#citations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Citations</h1>
+
+<h2 id="add-a-citation">
+<a id="add-a-citation" class="anchor" href="#add-a-citation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add a citation</h2>
+
+<p>Pandoc allows one to write citations that will come out comprehensibly in any citation format.</p>
+
+<ol>
+<li>Add an item to Zotero (e.g. click on the magic wand button and type the ISBN 0-19-814456-3).</li>
+<li>In Atom, open the command window (Cmd/Ctrl+Shift+P), and look for ‘Zotero Citations: Pick’.</li>
+<li>A window will appear allowing you to search for one or more items in the Zotero library.</li>
+<li>Pressing Return will add a citation key to your document.</li>
+</ol>
+
+<h2 id="save-the-bibliography">
+<a id="save-the-bibliography" class="anchor" href="#save-the-bibliography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Save the bibliography</h2>
+
+<ul>
+<li>Export the bibliographical data from Zotero: right-click on ‘My Library’, choose ‘Export Library’, and the ‘Better CSL JSON’ format.
+<ul>
+<li>Click the ‘keep updated’ option to have Zotero automatically update this file whenever a change is made to its database. You can then place this file in a central location and use it for all projects.</li>
+</ul>
+</li>
+</ul>
+
+<h2 id="convert-a-document-with-citations">
+<a id="convert-a-document-with-citations" class="anchor" href="#convert-a-document-with-citations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convert a document with citations’</h2>
+
+<ul>
+<li>
+<p>If you are converting a file named <code>test.md</code> to HTML and saved your bibliography in the same folder, named <code>library.json</code>:</p>
+<blockquote>
+<p>pandoc test.md -o test.html -sS –bibliography=library.json</p>
+</blockquote>
+<p>A plain file name will only work if it is in the current folder. To use a file from somewhere else, drag onto the terminal window to insert its exact path.</p>
+</li>
+</ul>
+
+<h2 id="change-the-citation-style">
+<a id="change-the-citation-style" class="anchor" href="#change-the-citation-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Change the citation style</h2>
+
+<ol>
+<li>Download a citation style from the <a href="https://www.zotero.org/styles">Zotero style repository</a>.</li>
+<li>
+<p>Change the citation style:</p>
+<blockquote>
+<p>pandoc test.md -o test.html -sS –bibliography=library.json –csl=chicago-fullnote-bibliography.csl</p>
+</blockquote>
+</li>
+</ol>
+
+<h2 id="in-text-reference">
+<a id="in-text-reference" class="anchor" href="#in-text-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>In-text reference</h2>
+
+<div><pre><code>Catullus is imprudent, as @reynolds:1983texts [p. 21] argue.</code></pre></div>
+
+<dl>
+<dt>Chicago author-date</dt>
+<dd>Catullus is imprudent, as Reynolds and Marshall (1983, 21) argue.
+</dd>
+<dt>Chicago full note</dt>
+<dd>Catullus is imprudent, as L.D. Reynolds and Peter K. Marshall, eds. [<strong>footnote</strong>: <em>Texts and Transmission: A Survey of the Latin Classics</em> (Oxford: Clarendon Press, 1983), 21.] argue.
+</dd>
+</dl>
+
+<h2 id="footnoteparenthetical-reference">
+<a id="footnoteparenthetical-reference" class="anchor" href="#footnoteparenthetical-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Footnote/parenthetical reference</h2>
+
+<div><pre><code>Horace is highly corrupt [see @reynolds:1983texts, p. 21].</code></pre></div>
+
+<dl>
+<dt>Chicago author-date</dt>
+<dd>Horace is highly corrupt (see Reynolds and Marshall 1983, 21).
+</dd>
+<dt>Chicago full note</dt>
+<dd>Horace is highly corrupt. [<strong>footnote</strong>: See L.D. Reynolds and Peter K. Marshall, eds., <em>Texts and Transmission: A Survey of the Latin Classics</em> (Oxford: Clarendon Press, 1983), 21.]
+</dd>
+</dl>
+
+<h2 id="suppress-author">
+<a id="suppress-author" class="anchor" href="#suppress-author" aria-hidden="true"><span class="octicon octicon-link"></span></a>Suppress author</h2>
+
+<div><pre><code>Reynolds and Marshall call Tacitus 'appalling'
+[-@reynolds:1983texts, p. 21].</code></pre></div>
+
+<dl>
+<dt>Chicago author-date</dt>
+<dd>Reynolds and Marshall call Tacitus ‘appalling’ (1983, 21).
+</dd>
+<dt>Chicago full note</dt>
+<dd>Reynolds and Marshall call Tacitus ‘appalling’. [<strong>footnote</strong>: <em>Texts and Transmission: A Survey of the Latin Classics</em> (Oxford: Clarendon Press, 1983), 21.]
+</dd>
+</dl>
+
+<h1 id="slides">
+<a id="slides" class="anchor" href="#slides" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slides</h1>
+
+<h2 id="html-slides">
+<a id="html-slides" class="anchor" href="#html-slides" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML slides</h2>
+
+<ul>
+<li>Uses a presentation framework such as <a href="http://lab.hakim.se/reveal-js/">reveal.js</a> to display a webpage as a series of slides.</li>
+<li>More accessible for users of screen readers than a PDF.</li>
+<li>Notes can be generated from the same file. (Anything enclosed in <code>&lt;div class="notes"&gt;</code> … <code>&lt;/div&gt;</code> will not appear on the slide.)</li>
+</ul>
+
+<h2 id="convert-to-reveal.js">
+<a id="convert-to-revealjs" class="anchor" href="#convert-to-revealjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convert to reveal.js</h2>
+
+<ul>
+<li>
+<p>New slides are generated based on headings and horizontal rules (<code>---</code>).</p>
+<blockquote>
+<p>pandoc versatile-writing.md -o versatile-writing.html -sS -t revealjs</p>
+</blockquote>
+</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/adunning/versatile-writing">Versatile academic writing with Pandoc</a> is maintained by <a href="https://github.com/adunning">adunning</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
