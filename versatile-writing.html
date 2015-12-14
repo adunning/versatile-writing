@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Andrew Dunning">
+  <meta name="dcterms.date" content="2015-12-14">
+  <title>Versatile academic writing with Pandoc</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cccccc; background-color: #303030; }
+code > span.kw { color: #f0dfaf; } /* Keyword */
+code > span.dt { color: #dfdfbf; } /* DataType */
+code > span.dv { color: #dcdccc; } /* DecVal */
+code > span.bn { color: #dca3a3; } /* BaseN */
+code > span.fl { color: #c0bed1; } /* Float */
+code > span.ch { color: #dca3a3; } /* Char */
+code > span.st { color: #cc9393; } /* String */
+code > span.co { color: #7f9f7f; } /* Comment */
+code > span.ot { color: #efef8f; } /* Other */
+code > span.al { color: #ffcfaf; } /* Alert */
+code > span.fu { color: #efef8f; } /* Function */
+code > span.er { color: #c3bf9f; } /* Error */
+code > span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+code > span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code > span.sc { color: #dca3a3; } /* SpecialChar */
+code > span.vs { color: #cc9393; } /* VerbatimString */
+code > span.ss { color: #cc9393; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #f0dfaf; } /* ControlFlow */
+code > span.op { color: #f0efd0; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #7f9f7f; } /* Documentation */
+code > span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code > span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Versatile academic writing with Pandoc</h1>
+  <h2 class="author">Andrew Dunning</h2>
+  <h3 class="date">14 December 2015</h3>
+</section>
+
+<section><section id="technology-independent-writing" class="titleslide slide level1"><h1>Technology-independent writing</h1></section><section id="why-not-word" class="slide level2">
+<h1>Why not Word?</h1>
+<ul>
+<li>Always focus on what will inspire you to write.</li>
+<li>There are many situations in which one needs to provide a document in multiple formats.</li>
+<li>From a technical point of view, there are several advantages to working with plain-text files:
+<ul>
+<li>You can see precisely what is in your files, and have complete control.</li>
+<li>Easier to achieve accessibility.</li>
+<li>Plain text has existed for decades.</li>
+<li>Facilitates separation of content and presentation, and focus on structure.</li>
+</ul></li>
+</ul>
+</section><section id="latex" class="slide level2">
+<h1>LaTeX</h1>
+<ul>
+<li>A professional typesetting system, widely used for scientific writing.</li>
+<li>TeX begun in 1978; LaTeX is a macro language for TeX, begun in 1985.</li>
+<li>Drawback: can only produce PDFs.</li>
+</ul>
+</section><section id="markdown" class="slide level2">
+<h1>Markdown</h1>
+<ul>
+<li>Lightweight markup language developed in 2004, designed to correspond to HTML.</li>
+<li>Introduction to basic markup: <a href="http://markdowntutorial.com" class="uri">http://markdowntutorial.com</a></li>
+<li>Subsequently extended through many ‘flavours’, not entirely compatible with one another.</li>
+</ul>
+</section><section id="pandoc" class="slide level2">
+<h1>Pandoc</h1>
+<ul>
+<li>Document converter, begun in 2006 by John MacFarlane (now chair of philosophy at University of California Berkeley).</li>
+<li>Introduction: <a href="http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown">Sustainable Authorship in Plain Text using Pandoc and Markdown</a></li>
+</ul>
+</section><section id="example-document" class="slide level2">
+<h1>Example document</h1>
+<blockquote>
+<p><strong>Test Document</strong></p>
+<p>This is a <em>test</em> sentence.</p>
+</blockquote>
+</section><section id="word-html-output" class="slide level2">
+<h1>Word HTML output</h1>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body</span><span class="ot"> bgcolor=</span><span class="st">white</span><span class="ot"> lang=</span><span class="st">EN-US</span><span class="ot"> style=</span><span class="st">&#39;tab-interval:36.0pt&#39;</span><span class="kw">&gt;</span>
+
+<span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">WordSection1</span><span class="kw">&gt;</span>
+
+<span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">MsoNormal</span><span class="kw">&gt;&lt;b</span><span class="ot"> style=</span><span class="st">&#39;mso-bidi-font-weight:normal&#39;</span><span class="kw">&gt;&lt;span</span>
+<span class="ot">style=</span><span class="st">&#39;mso-ansi-language:EN-US&#39;</span><span class="kw">&gt;</span>Test Document<span class="kw">&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;</span>
+
+<span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">MsoNormal</span><span class="kw">&gt;&lt;span</span><span class="ot"> style=</span><span class="st">&#39;mso-ansi-language:EN-US&#39;</span><span class="kw">&gt;&lt;o:p&gt;</span><span class="dv">&amp;nbsp;</span><span class="kw">&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;</span>
+
+<span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">MsoNormal</span><span class="kw">&gt;&lt;span</span><span class="ot"> style=</span><span class="st">&#39;mso-ansi-language:EN-US&#39;</span><span class="kw">&gt;</span>This is a <span class="kw">&lt;i</span>
+<span class="ot">style=</span><span class="st">&#39;mso-bidi-font-style:normal&#39;</span><span class="kw">&gt;</span>test<span class="kw">&lt;/i&gt;</span> sentence.<span class="kw">&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;</span>
+
+<span class="kw">&lt;/div&gt;</span>
+
+<span class="kw">&lt;/body&gt;</span></code></pre></div>
+</section><section id="semantic-html-output" class="slide level2">
+<h1>Semantic HTML output</h1>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;h1&gt;</span>Test Document<span class="kw">&lt;/h1&gt;</span>
+<span class="kw">&lt;p&gt;</span>This is a <span class="kw">&lt;em&gt;</span>test<span class="kw">&lt;/em&gt;</span> sentence.<span class="kw">&lt;/p&gt;</span></code></pre></div>
+</section><section id="markdown-input" class="slide level2">
+<h1>Markdown input</h1>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Test Document</span>
+
+This is a *test* sentence.</code></pre></div>
+</section></section>
+<section><section id="setup" class="titleslide slide level1"><h1>Setup</h1></section><section id="what-youll-need" class="slide level2">
+<h1>What you’ll need</h1>
+<ol type="1">
+<li>A text editor. This can be anything you like, e.g. <a href="https://atom.io">Atom.io</a>, <a href="https://macromates.com">TextMate 2</a> (Mac), or <a href="http://omz-software.com/editorial/">Editorial</a> (iOS).</li>
+<li><a href="http://pandoc.org">Pandoc</a>, to convert your writing into the formats you want.</li>
+<li>If you want to use a citation manager: <a href="https://www.zotero.org">Zotero</a> provides the most flexibility.</li>
+<li>Pandoc can <a href="http://pandoc.org/installing.html">integrate with LaTeX</a> for creating well-typeset PDFs.</li>
+</ol>
+</section><section id="install-atom" class="slide level2">
+<h1>Install Atom</h1>
+<aside class="notes">
+<p>Since Atom provides excellent support for Markdown and is cross-platform and open-source, we’re going to focus on it in this tutorial. It is intended as a minimalist basis onto which one can add the pieces needed.</p>
+</aside>
+<ol type="1">
+<li>Download and install the appropriate version of <a href="https://atom.io">Atom</a> for your system.</li>
+<li>Add these packages by opening the Atom preferences, going to the Install screen, and searching for the following:
+<ul>
+<li>markdown-writer</li>
+<li>zotero-citations</li>
+</ul></li>
+</ol>
+</section><section class="slide level2">
+
+<ol start="3" type="1">
+<li>Other useful packages:
+<ul>
+<li>dictionary (OS X Dictionary integration)</li>
+<li>wordcount</li>
+<li>zen (full-screen writing)</li>
+<li>language-pfm (better syntax highlighting: disable language-gfm package if used)</li>
+<li>markdown-folder</li>
+<li>markdown-mindmap</li>
+<li>markdown-preview-plus (Markdown preview using Pandoc)</li>
+</ul></li>
+</ol>
+</section><section id="configure-atom-packages" class="slide level2">
+<h1>Configure Atom Packages</h1>
+<ol type="1">
+<li>In the settings screen for Zotero Citations, change the citation style to ‘pandoc’.</li>
+<li>To set up standard keyboard shortcuts, type <key>Cmd</key>/<key>Ctrl</key>+<key>Shift</key>+<key>P</key> to open the command window, and select ‘Markdown Writer: Create Default keymaps’.</li>
+</ol>
+</section><section id="install-pandoc" class="slide level2">
+<h1>Install Pandoc</h1>
+<ul>
+<li>Install using the <a href="http://pandoc.org/installing.html">Pandoc package</a>.</li>
+<li>Mac: package also available, but recommended to install using <a href="http://brew.sh">Homebrew</a>, a manager for command-line tools.</li>
+</ul>
+</section><section id="install-zotero" class="slide level2">
+<h1>Install Zotero</h1>
+<ul>
+<li>Download <a href="https://www.zotero.org/download/">Zotero</a>.</li>
+<li>Install the <a href="https://zotplus.github.io/better-bibtex/">Better BibTeX</a> add-on.</li>
+</ul>
+</section></section>
+<section><section id="start-writing" class="titleslide slide level1"><h1>Start writing</h1></section><section id="basic-syntax" class="slide level2">
+<h1>Basic syntax</h1>
+<ol type="1">
+<li>Create a new document in Atom and save it somewhere with a <code>.md</code> extension.</li>
+<li>Open the command window (<key>Cmd</key>/<key>Ctrl</key>+<key>Shift</key>+<key>P</key>) and choose ‘Markdown Preview’.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">*italic* or _italic_
+
+**bold**
+
+New paragraphs are indicated by two line breaks.</code></pre></div>
+</section><section id="lists" class="slide level2">
+<h1>Lists</h1>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">- <span class="fl">Item 1</span>
+<span class="fl">- Item 2</span>
+<span class="fl">- Item 3</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">1. <span class="fl">Item 1</span>
+<span class="fl">2. Item 2</span>
+<span class="fl">3. Item 3</span></code></pre></div>
+</section><section id="headings" class="slide level2">
+<h1>Headings</h1>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Heading 1</span>
+
+Text.
+
+<span class="fu">## Heading 2</span>
+
+Text.
+
+<span class="fu">### Heading 3</span>
+
+Text.</code></pre></div>
+</section><section id="block-quotation" class="slide level2">
+<h1>Block Quotation</h1>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">Text.
+
+&gt;<span class="dt"> Quoted text.</span></code></pre></div>
+</section><section id="metadata" class="slide level2">
+<h1>Metadata</h1>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">title:</span> My Horrible Life
+<span class="fu">author:</span> Peter Abelard
+<span class="fu">date:</span> 14 December 1115
+<span class="fu">abstract:</span> |
+    Explanation of the pure and unappreciated
+    genius of the author.
+<span class="ot">---</span></code></pre></div>
+</section><section id="comments" class="slide level2">
+<h1>Comments</h1>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">&lt;!--<span class="co"> This text will not be visible. --&gt;</span></code></pre></div>
+</section></section>
+<section><section id="convert-a-document" class="titleslide slide level1"><h1>Convert a document</h1></section><section id="open-the-terminal" class="slide level2">
+<h1>Open the Terminal</h1>
+<ul>
+<li>Programs are executed on the command line by typing their name, followed by ‘arguments’ (i.e. the content they are to manipulate) and ‘flags’ (options to be used).
+<ul>
+<li>Mac: Terminal (in the Utilities folder)</li>
+<li>Windows: Command Prompt or PowerShell</li>
+</ul></li>
+<li>Type <code>pandoc</code>: nothing will happen, since it needs text to work with.</li>
+<li>Type something into the prompt. To end the transmission, type <key>Ctrl</key>+D (<key>Ctrl</key>+Z on Windows).</li>
+<li>Pandoc will provide the HTML equivalent of what you just typed.</li>
+</ul>
+</section><section id="open-the-folder-in-the-terminal" class="slide level2">
+<h1>Open the folder in the terminal</h1>
+<h3 id="mac">Mac</h3>
+<ul>
+<li>Drag the icon for the folder you want to work with onto the Terminal icon in the Dock.</li>
+</ul>
+<h3 id="windows">Windows</h3>
+<ul>
+<li>Right-click in the folder with the <key>shift</key> key held down</li>
+<li>Choose the ‘Open in Command Prompt’ option.</li>
+</ul>
+</section><section id="convert-a-document-to-html" class="slide level2">
+<h1>Convert a document to HTML</h1>
+<ul>
+<li>To convert a file named <code>test.md</code> into HTML format:</li>
+</ul>
+<blockquote>
+<p>pandoc test.md -o test.html -sS</p>
+</blockquote>
+<ul>
+<li>The <code>-sS</code> flags are short forms for the <code>smart</code> and <code>standalone</code> options, which enable smart typography and HTML heading information (document will be a fragment otherwise).</li>
+</ul>
+</section><section id="convert-a-word-document-to-markdown" class="slide level2">
+<h1>Convert a Word document to Markdown</h1>
+<blockquote>
+<p>pandoc word-test.docx -o word-test.md -sS –atx-headers –no-wrap</p>
+</blockquote>
+<ul>
+<li>There are two different methods of writing headings in Markdown; <code>--atx-headers</code> uses the hash characters.</li>
+<li></li>
+</ul>
+</section><section id="other-formats" class="slide level2">
+<h1>Other formats</h1>
+<h3 id="html5">HTML5</h3>
+<blockquote>
+<p>pandoc test.md -o test.html -sS -t html5</p>
+</blockquote>
+<h3 id="word">Word</h3>
+<blockquote>
+<p>pandoc test.md -o test.docx -sS</p>
+</blockquote>
+<h3 id="epub">EPUB</h3>
+<blockquote>
+<p>pandoc test.md -o test.epub -sS</p>
+</blockquote>
+<h3 id="latex-1">LaTeX</h3>
+<blockquote>
+<p>pandoc test.md -o test.tex -sS</p>
+</blockquote>
+</section></section>
+<section><section id="citations" class="titleslide slide level1"><h1>Citations</h1></section><section id="add-a-citation" class="slide level2">
+<h1>Add a citation</h1>
+<p>Pandoc allows one to write citations that will come out comprehensibly in any citation format.</p>
+<ol type="1">
+<li>Add an item to Zotero (e.g. click on the magic wand button and type the ISBN 0-19-814456-3).</li>
+<li>In Atom, open the command window (<key>Cmd</key>/<key>Ctrl</key>+<key>Shift</key>+<key>P</key>), and look for ‘Zotero Citations: Pick’.</li>
+<li>A window will appear allowing you to search for one or more items in the Zotero library.</li>
+<li>Pressing <key>Return</key> will add a citation key to your document.</li>
+</ol>
+</section><section id="save-the-bibliography" class="slide level2">
+<h1>Save the bibliography</h1>
+<ul>
+<li>Export the bibliographical data from Zotero: right-click on ‘My Library’, choose ‘Export Library’, and the ‘Better CSL JSON’ format.
+<ul>
+<li>Click the ‘keep updated’ option to have Zotero automatically update this file whenever a change is made to its database. You can then place this file in a central location and use it for all projects.</li>
+</ul></li>
+</ul>
+</section><section id="convert-a-document-with-citations" class="slide level2">
+<h1>Convert a document with citations’</h1>
+<ul>
+<li><p>If you are converting a file named <code>test.md</code> to HTML and saved your bibliography in the same folder, named <code>library.json</code>:</p>
+<blockquote>
+<p>pandoc test.md -o test.html -sS –bibliography=library.json</p>
+</blockquote>
+<p>A plain file name will only work if it is in the current folder. To use a file from somewhere else, drag onto the terminal window to insert its exact path.</p></li>
+</ul>
+</section><section id="change-the-citation-style" class="slide level2">
+<h1>Change the citation style</h1>
+<ol type="1">
+<li>Download a citation style from the <a href="https://www.zotero.org/styles">Zotero style repository</a>.</li>
+<li><p>Change the citation style:</p>
+<blockquote>
+<p>pandoc test.md -o test.html -sS –bibliography=library.json –csl=chicago-fullnote-bibliography.csl</p>
+</blockquote></li>
+</ol>
+</section><section id="in-text-reference" class="slide level2">
+<h1>In-text reference</h1>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">Catullus is imprudent, as @reynolds:1983texts [p. 21] argue.</code></pre></div>
+<dl>
+<dt>Chicago author-date</dt>
+<dd>Catullus is imprudent, as Reynolds and Marshall (1983, 21) argue.
+</dd>
+<dt>Chicago full note</dt>
+<dd>Catullus is imprudent, as L.D. Reynolds and Peter K. Marshall, eds. [<strong>footnote</strong>: <em>Texts and Transmission: A Survey of the Latin Classics</em> (Oxford: Clarendon Press, 1983), 21.] argue.
+</dd>
+</dl>
+</section><section id="footnoteparenthetical-reference" class="slide level2">
+<h1>Footnote/parenthetical reference</h1>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">Horace is highly corrupt [see @reynolds:1983texts, p. 21].</code></pre></div>
+<dl>
+<dt>Chicago author-date</dt>
+<dd>Horace is highly corrupt (see Reynolds and Marshall 1983, 21).
+</dd>
+<dt>Chicago full note</dt>
+<dd>Horace is highly corrupt. [<strong>footnote</strong>: See L.D. Reynolds and Peter K. Marshall, eds., <em>Texts and Transmission: A Survey of the Latin Classics</em> (Oxford: Clarendon Press, 1983), 21.]
+</dd>
+</dl>
+</section><section id="suppress-author" class="slide level2">
+<h1>Suppress author</h1>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">Reynolds and Marshall call Tacitus &#39;appalling&#39;
+[-@reynolds:1983texts, p. 21].</code></pre></div>
+<dl>
+<dt>Chicago author-date</dt>
+<dd>Reynolds and Marshall call Tacitus ‘appalling’ (1983, 21).
+</dd>
+<dt>Chicago full note</dt>
+<dd>Reynolds and Marshall call Tacitus ‘appalling’. [<strong>footnote</strong>: <em>Texts and Transmission: A Survey of the Latin Classics</em> (Oxford: Clarendon Press, 1983), 21.]
+</dd>
+</dl>
+</section></section>
+<section><section id="slides" class="titleslide slide level1"><h1>Slides</h1></section><section id="html-slides" class="slide level2">
+<h1>HTML slides</h1>
+<ul>
+<li>Uses a presentation framework such as <a href="http://lab.hakim.se/reveal-js/">reveal.js</a> to display a webpage as a series of slides.</li>
+<li>More accessible for users of screen readers than a PDF.</li>
+<li>Notes can be generated from the same file. (Anything enclosed in <code>&lt;div class=&quot;notes&quot;&gt;</code> … <code>&lt;/div&gt;</code> will not appear on the slide.)</li>
+</ul>
+</section><section id="convert-to-reveal.js" class="slide level2">
+<h1>Convert to reveal.js</h1>
+<ul>
+<li><p>New slides are generated based on headings and horizontal rules (<code>---</code>).</p>
+<blockquote>
+<p>pandoc versatile-writing.md -o versatile-writing.html -sS -t revealjs</p>
+</blockquote></li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Vertical centering of slides
+        center: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
